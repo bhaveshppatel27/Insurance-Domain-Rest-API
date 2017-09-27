@@ -1,0 +1,164 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "_type": {
+      "type": "string",
+	  "description": "plan"
+    },
+    "objectType": {
+      "type": "string"
+    },
+    "_id": {
+      "type": "string"
+    },
+    "objectId": {
+      "type": "string"
+    },
+    "creationDate": {
+      "type": "string"
+    },
+    "planCostShares": {
+      "type": "object",
+      "properties": {
+        "copay": {
+          "type": "integer"
+        },
+        "objectType": {
+          "type": "string"
+        },
+        "_type": {
+          "type": "string",
+		  "description": "membercostshare"
+        },
+        "objectId": {
+          "type": "string"
+        },
+        "_id": {
+          "type": "string"
+        },
+        "deductible": {
+          "type": "integer"
+        },
+        "a": {
+          "type": "object",
+          "properties": {
+            "a": {
+              "type": "integer"
+            },
+            "_type": {
+                "type": "string",
+				"description": "a"
+              }
+          },
+          "required": [
+            "a"
+          ]
+        }
+      },
+      "required": [
+        "copay",
+        "objectType",
+        "_type",
+        "objectId",
+        "_id",
+        "deductible"
+      ]
+    },
+    "linkedPlanServices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "title":"planservice",
+        "properties": {
+          "objectType": {
+            "type": "string"
+          },
+          "_type": {
+            "type": "string",
+			"description": "planservice"
+          },
+          "objectId": {
+            "type": "string"
+          },
+          "_id": {
+            "type": "string"
+          },
+          "planserviceCostShares": {
+            "type": "object",
+            "properties": {
+              "copay": {
+                "type": "integer"
+              },
+              "objectType": {
+                "type": "string"
+              },
+              "_type": {
+                "type": "string",
+				"description": "membercostshare"
+              },
+              "objectId": {
+                "type": "string"
+              },
+              "_id": {
+                "type": "string"
+              },
+              "deductible": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "copay",
+              "objectType",
+              "_type",
+              "objectId",
+              "_id",
+              "deductible"
+            ]
+          },
+          "linkedService": {
+            "type": "object",
+            "properties": {
+              "objectType": {
+                "type": "string"
+              },
+              "_type": {
+                "type": "string",
+				"description": "service"
+              },
+              "objectId": {
+                "type": "string"
+              },
+              "_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "objectType",
+              "_type",
+              "objectId",
+              "_id"
+            ]
+          }
+        },
+        "required": [
+          "objectType",
+          "_type",
+          "objectId",
+          "_id",
+          "planserviceCostShares",
+          "linkedService"
+        ]
+      }
+    }
+  },
+  "required": [
+    "_type",
+    "objectType",
+    "_id",
+    "objectId",
+    "creationDate",
+    "planCostShares",
+    "linkedPlanServices"
+  ]
+}

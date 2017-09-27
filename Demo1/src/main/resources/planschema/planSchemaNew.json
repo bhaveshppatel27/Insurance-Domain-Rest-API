@@ -1,0 +1,95 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "plan",
+	"description": "Health Care Plan For Employees",
+	"type": "object",
+	"properties": {
+		"name": {
+			"description": "plan",
+			"type": "string"
+		},
+		"_type": {
+			"description": "plan",
+			"type": "string"
+		},
+		"_id": {
+			"description": "Plan ID",
+			"type": "string"
+		},
+		"cost": {
+			"type": "object",
+			"description": "Health Care Plan Cost",
+			"title": "cost",
+			"properties": {			
+				"_type": {
+					"description": "membercostshare",
+					"type": "string"
+				},
+				"_id": {
+					"description": "Cost ID",
+					"type": "string"
+				},
+				"costId": {
+					"description": "The unique identifier for the plan cost",
+					"type": "integer"
+				},
+				"deductible": {
+					"description": "The deductible amount",
+					"type": "number"
+				},
+				"coPay": {
+					"description": "The amount of coPay",
+					"type": "number"
+				}
+			},
+			"required": [
+				"costId",
+				"deductible",
+				"coPay",
+				"_type",
+				"_id"
+			],
+			"additionalProperties": true
+		},
+		"services": {
+			"type": "array",
+			"description": "Service Names",
+			"title": "services",
+			"items": 
+				{
+					"type": "object",
+					"description": "Services",
+					"properties": {
+						"_type": {
+							"description": "planservice",
+							"type": "string"
+						},
+						"_id": {
+							"description": "Service ID",
+							"type": "string"
+						},
+						"serviceId": {
+							"description": "Unique identifier for the service",
+							"type": "integer"
+						},
+						"serviceName": {
+							"description": "Name of the Service",
+							"type": "string"
+						}
+					},
+					"required": [
+						"serviceId",
+						"serviceName",
+						"_type",
+						"_id"
+					],
+					"additionalProperties": false
+				}
+			
+		}
+	},
+	"required": [
+		"name","cost","services","_type","_id"
+	],
+	"additionalProperties": true
+}
